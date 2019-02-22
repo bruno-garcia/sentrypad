@@ -4,6 +4,9 @@
       "name": "Mac",
       "includePath": [
         "${workspaceFolder}/**",
+        "../breakpad-Darwin/include/client/mac/handler",
+        "../breakpad-Darwin/include/",
+        "../breakpad-Darwin/include/client/windows/handler/",
         "../crashpad-Darwin/include/",
         "../crashpad-Darwin/include/mini_chromium"
       ],
@@ -15,7 +18,7 @@
       "cStandard": "c11",
       "cppStandard": "c++17",
       "intelliSenseMode": "clang-x64",
-      "defines": ["SENTRY_CRASHPAD"]
+      "defines": ["SENTRY_BREAKPAD", "MAC"]
     }
   ],
   "version": 4

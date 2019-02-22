@@ -51,9 +51,9 @@ int sentry_set_fingerprint(const char **fingerprint, size_t len);
 int sentry_remove_fingerprint();
 int sentry_set_transaction(const char *transaction);
 int sentry_remove_transaction();
-int sentry_set_level(enum sentry_level_t level)
-{
-}
+// int sentry_set_level(enum sentry_level_t level)
+// {
+// }
 
 int sentry_set_tag(const char *key, const char *value)
 {

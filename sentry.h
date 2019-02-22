@@ -30,10 +30,10 @@ extern "C"
         // TODO: whatever breakpad needs
     } sentry_options_t;
 
-    typedef struct sentry_breadcrumb_s
-    {
+    // typedef struct sentry_breadcrumb_s
+    // {
 
-    } sentry_breadcrumb_t;
+    // } sentry_breadcrumb_t;
 
     typedef struct sentry_user_s
     {
@@ -53,7 +53,7 @@ extern "C"
 
     // Unified API
     int sentry_init(const sentry_options_t *options);
-    int sentry_add_breadcrumb(sentry_breadcrumb_t *breadcrumb);
+    // int sentry_add_breadcrumb(sentry_breadcrumb_t *breadcrumb);
     int sentry_push_scope();
     int sentry_pop_scope();
     int sentry_set_user(sentry_user_t *user);
