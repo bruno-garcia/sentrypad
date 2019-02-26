@@ -1,6 +1,7 @@
 libsentry.dylib:
 	g++ -g -dynamiclib \
 		-o libsentry.dylib sentry.cpp crashpad_wrapper.cpp \
+		-I ../msgpack-c/include/ \
 		-I ../crashpad-Darwin/include/ -I ../crashpad-Darwin/include/mini_chromium/ \
 		-std=c++11 -L../crashpad-Darwin/lib -lclient -lbase -lutil \
 		-framework Foundation -framework Security -framework CoreText \

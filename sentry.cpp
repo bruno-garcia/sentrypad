@@ -6,11 +6,44 @@
 #include "sentry.h"
 #include <string>
 
+#include <msgpack.hpp>
+#include <iostream>
+#include <fstream>
+#include <sstream>
+
 #if defined(SENTRY_CRASHPAD)
 using namespace sentry::crashpad;
 #elif defined(SENTRY_BREAKPAD)
 using namespace sentry::breakpad;
 #endif
+
+using namespace std;
+
+typedef struct sentry_event_s
+{
+    const char *release;
+    const char *environment;
+} sentry_event_t;
+
+void write()
+{
+    // msgpack::type::tuple<int, bool, std::string> src(1, true, "example");
+    sentry_event_t evt;
+    evt.release = "21345678";
+    evt.environment = "Production";
+
+    std::ofstream myfile;
+    myfile.open("example.txt");
+
+    // serialize the object into the buffer.
+    // any classes that implements write(const char*,size_t) can be a buffer.
+    std::stringstream buffer;
+    msgpack::pack(myfile, evt);
+
+    myfile.close();
+    // send the buffer ...
+    buffer.seekg(0);
+}
 
 int sentry_init(const sentry_options_t *options)
 {
@@ -34,6 +67,8 @@ int sentry_init(const sentry_options_t *options)
     {
         set_annotation("sentry[dist]", options->dist);
     }
+
+    write();
 
     return SENTRY_ERROR_NULL_ARGUMENT;
 }

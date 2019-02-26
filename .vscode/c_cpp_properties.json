@@ -4,6 +4,7 @@
       "name": "Mac",
       "includePath": [
         "${workspaceFolder}/**",
+        "../msgpack-c/include/",
         "../crashpad-Darwin/include/",
         "../crashpad-Darwin/include/mini_chromium"
       ],
